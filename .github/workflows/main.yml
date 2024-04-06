@@ -90,9 +90,9 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/gyunpang-be
 
       # deploy to be1
-      - name: Deploy docker at BE1
+      - name: run script at BE1
         uses: appleboy/ssh-action@master
-        id: deploy-docker
+        id: run-script-be1
         if: contains(github.ref, 'master')
         with:
           key: ${{ secrets.BE1_PRIVATE_KEY }}
@@ -107,9 +107,9 @@ jobs:
             sudo docker image prune -f 
 
       ## deploy to be2
-      - name: Deploy docker at BE2
+      - name: run script at BE2
         uses: appleboy/ssh-action@master
-        id: deploy-docker
+        id: run-script-be2
         if: contains(github.ref, 'master')
         with:
           key: ${{ secrets.BE2_PRIVATE_KEY }}
