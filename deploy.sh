@@ -7,10 +7,10 @@ if [ -z "$IS_GREEN" ]; then # blue라면
   echo "### BLUE => GREEN ###"
 
   echo "1. get green image"
-  docker compose pull be-green
+  sudo docker compose pull be-green
 
   echo "2. green container up"
-  docker compose up -d be-green --scale be-green=3
+  sudo docker compose up -d be-green --scale be-green=3
 
   for cnt in {1..10}
   do
@@ -39,15 +39,15 @@ if [ -z "$IS_GREEN" ]; then # blue라면
   sudo docker compose exec nginx service nginx reload
 
   echo "5. blue container down"
-  docker compose stop be-blue
+  sudo docker compose down be-blue
 else
   echo "### GREEN => BLUE ###"
 
   echo "1. get blue image"
-  docker compose pull be-blue
+  sudo docker compose pull be-blue
 
   echo "2. blue container up"
-  docker compose up -d be-blue --scale be-blue=3
+  sudo docker compose up -d be-blue --scale be-blue=3
 
   for cnt in {1..10}
   do
@@ -77,5 +77,5 @@ else
   sudo docker compose exec nginx service nginx reload
 
   echo "5. green container down"
-  docker compose stop be-green
+  sudo docker compose down be-green
 fi
