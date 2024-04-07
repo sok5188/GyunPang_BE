@@ -20,6 +20,6 @@ public class HealthController {
 			String customEnv = environment.getProperty("CONTAINER_COLOR");
 			return ResponseEntity.ok(customEnv + " hello");
 		}
-		else return ResponseEntity.ok("NoCOLOR");
+		else return ResponseEntity.ok("Cannot find color");
 	}
 }
