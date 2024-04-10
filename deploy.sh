@@ -19,7 +19,7 @@ echo "1. get new image"
 sudo docker compose pull $NEW_CONTAINER
 
 echo "2. OLD container resize to 1"
-sudo docker compose up -d $OLD_CONTAINER --scale $OLD_CONTAINER=1
+sudo docker compose scale $OLD_CONTAINER=1
 sleep 10
 
 echo "3. NEW container up"
