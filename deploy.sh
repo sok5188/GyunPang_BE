@@ -5,8 +5,8 @@ IS_GREEN=$(sudo docker ps | grep green) # 현재 실행중인 App이 blue인지 
 if [ -z "$IS_GREEN" ]; then # blue라면
   echo "### BLUE => GREEN ###"
 
-  OLD_CONTAINER='be-green'
-  NEW_CONTAINER='be-blue'
+  OLD_CONTAINER='be-blue'
+  NEW_CONTAINER='be-green'
 
 else
   echo "### GREEN => BLUE ###"
