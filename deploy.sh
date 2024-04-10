@@ -1,22 +1,19 @@
 #!/bin/bash
 
-IS_GREEN=$(sudo docker ps | grep green) # 현재 실행중인 App이 blue인지 확인합니다.
+IS_GREEN=$(sudo docker ps | grep green)
 
-if [ -z "$IS_GREEN" ]; then # blue라면
-  echo "### BLUE => GREEN ###"
-
+if [ -z "$IS_GREEN" ]; then
   OLD_CONTAINER='be-blue'
   NEW_CONTAINER='be-green'
   NEW_CONF='nginx_green.conf'
 
 else
-  echo "### GREEN => BLUE ###"
-
   OLD_CONTAINER='be-green'
   NEW_CONTAINER='be-blue'
   NEW_CONF='nginx_blue.conf'
 fi
 
+echo "OLD : $OLD_CONTAINER , NEW : $NEW_CONTAINER, CONF : $NEW_CONF"
 echo "1. get new image"
 sudo docker compose pull $NEW_CONTAINER
 
