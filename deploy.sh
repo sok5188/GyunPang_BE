@@ -14,12 +14,13 @@ else
 fi
 
 echo "OLD : $OLD_CONTAINER , NEW : $NEW_CONTAINER, CONF : $NEW_CONF"
-echo "1. get new image"
-sudo docker compose pull $NEW_CONTAINER
 
-echo "2. OLD container resize to 1"
+echo "1. OLD container resize to 1"
 sudo docker compose scale $OLD_CONTAINER=1
 sleep 10
+
+echo "2. get new image"
+sudo docker compose pull $NEW_CONTAINER
 
 echo "3. NEW container up"
 sudo docker compose up -d $NEW_CONTAINER --scale $NEW_CONTAINER=3
