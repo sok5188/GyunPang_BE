@@ -16,7 +16,7 @@ fi
 echo "OLD : $OLD_CONTAINER , NEW : $NEW_CONTAINER, CONF : $NEW_CONF"
 
 echo "1. OLD container resize to 1"
-sudo docker compose -d $OLD_CONTAINER --scale $OLD_CONTAINER=1 --no-recreate
+sudo docker compose up -d $OLD_CONTAINER --scale $OLD_CONTAINER=1 --no-recreate
 sleep 10
 
 echo "2. get new image"
