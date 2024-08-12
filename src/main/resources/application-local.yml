@@ -1,2 +1,10 @@
 server:
   port: 8088
+
+spring:
+  kafka:
+    bootstrap-servers: 34.31.52.96:9092
+
+kafka:
+  topic:
+    log: GatewayAPI

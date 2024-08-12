@@ -15,4 +15,4 @@ WORKDIR /be
 
 COPY --from=builder /be/build/libs/*.jar app.jar
 
-CMD ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "-javaagent:/pinpoint-agent/pinpoint-bootstrap-3.0.0.jar", "-Dpinpoint.agentId=be","-Dpinpoint.applicationName=be","app.jar"]
