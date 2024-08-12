@@ -25,19 +25,4 @@ public class HealthController {
 		}
 		else return ResponseEntity.ok("Cannot find color");
 	}
-	@GetMapping("/open/123")
-	public ResponseEntity tst1(){
-		return ResponseEntity.ok("openAPITEST");
-	}
-
-	@GetMapping("/authTest")
-	public ResponseEntity authTest(HttpServletRequest request){
-		Enumeration<String> headerNames = request.getHeaderNames();
-		while (headerNames.hasMoreElements()){
-			String key = headerNames.nextElement();
-			String value = request.getHeader(key);
-			System.out.println("key = " + key+" / val : "+ value);
-		}
-		return ResponseEntity.ok("AUTH_TEST");
-	}
 }
