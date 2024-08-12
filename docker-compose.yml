@@ -1,4 +1,3 @@
-
 services:
   be-blue:
     image: sok5188/gyunpang-be:latest
@@ -9,6 +8,8 @@ services:
     image: sok5188/gyunpang-be:latest
     environment:
       CONTAINER_COLOR: "green"
+    volumes:
+      - ./pinpoint-agent-3.0.0/pinpoint-bootstrap-3.0.0.jar:/pinpoint-agent/pinpoint-bootstrap-3.0.0.jar
 
   nginx:
     image: nginx:latest
