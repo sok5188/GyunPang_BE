@@ -44,7 +44,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build -x test
 
-      # send docker-compose.yml to be1
+      # send files to be1
       - name: Send docker-compose.yml to BE1
         uses: appleboy/scp-action@master
         with:
@@ -52,10 +52,10 @@ jobs:
           host: ${{ secrets.BE1_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           port: 22
-          source: "./docker-compose.yml"
+          source: "docker-compose.yml,entrypoint.sh,deploy.sh"
           target: "/home/ubuntu/"
 
-      # send docker-compose.yml to be2
+      # send files to be2
       - name: Send docker-compose.yml to BE2
         uses: appleboy/scp-action@master
         with:
@@ -63,29 +63,7 @@ jobs:
           host: ${{ secrets.BE2_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           port: 22
-          source: "./docker-compose.yml"
-          target: "/home/ubuntu/"
-
-      # send deploy.sh be1
-      - name: Send deploy.sh to BE1
-        uses: appleboy/scp-action@master
-        with:
-          key: ${{ secrets.BE1_PRIVATE_KEY }}
-          host: ${{ secrets.BE1_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          port: 22
-          source: "./deploy.sh"
-          target: "/home/ubuntu/"
-
-      # send deploy.sh be2
-      - name: Send deploy.sh to BE2
-        uses: appleboy/scp-action@master
-        with:
-          key: ${{ secrets.BE2_PRIVATE_KEY }}
-          host: ${{ secrets.BE2_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          port: 22
-          source: "./deploy.sh"
+          source: "docker-compose.yml,entrypoint.sh,deploy.sh"
           target: "/home/ubuntu/"
 
       # docker build & push to hub
