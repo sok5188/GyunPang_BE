@@ -3,11 +3,15 @@ services:
     image: sok5188/gyunpang-be:latest
     environment:
       CONTAINER_COLOR: "blue"
+      PINPOINT_AGENT_ID: ${PINPOINT_AGENT_ID}
+    volumes:
+      - ./pinpoint-agent-3.0.0:/pinpoint-agent
 
   be-green:
     image: sok5188/gyunpang-be:latest
     environment:
       CONTAINER_COLOR: "green"
+      PINPOINT_AGENT_ID: ${PINPOINT_AGENT_ID}
     volumes:
       - ./pinpoint-agent-3.0.0:/pinpoint-agent
 
