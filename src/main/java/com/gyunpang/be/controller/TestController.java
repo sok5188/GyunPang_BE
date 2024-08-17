@@ -25,11 +25,6 @@ import lombok.extern.slf4j.Slf4j;
 public class TestController {
 	private final KafkaConsumeService kafkaConsumeService;
 
-	@GetMapping("/open/123")
-	public ResponseEntity tst1() {
-		return ResponseEntity.ok("openAPITEST");
-	}
-
 	@GetMapping("/auth")
 	public ResponseEntity authTest(HttpServletRequest request) {
 		Enumeration<String> headerNames = request.getHeaderNames();
