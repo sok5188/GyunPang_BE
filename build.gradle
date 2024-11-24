@@ -27,6 +27,8 @@ dependencies {
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.1.0'
+    implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.6.3'
+
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
