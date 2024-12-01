@@ -9,8 +9,8 @@ spring:
     hikari:
       maximum-pool-size: 15
       auto-commit: false
-      connection-timeout: 3000
-      max-lifetime: 60000
+      connection-timeout: 10000
+      max-lifetime: 90000
   jpa:
     hibernate:
       default-batch-size: 200
