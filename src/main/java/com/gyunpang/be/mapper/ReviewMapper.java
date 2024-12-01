@@ -18,17 +18,22 @@ import com.gyunpang.be.entity.ReviewEntity;
 		MemberMapper.class,
 		ProductMapper.class
 	})
-public interface ReviewMapper {
-	@Mapping(source = "member.memberId", target = "memberId")
-	@Mapping(source = "product.productId", target = "productId")
-	ReviewDto.Info toInfoDto(ReviewEntity entity);
+public interface ReviewMapper extends GenericMapper<ReviewDto, ReviewEntity> {
+	ReviewEntity map(Integer reviewId);
 
-	@Mapping(source = "memberId", target = "member.memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
+	@Mapping(source = "product.productId", target = "productId")
+	ReviewDto toDto(ReviewEntity entity);
+
+	@Override
+	@Mapping(source = "userId", target = "member.userId")
 	@Mapping(source = "productId", target = "product.productId")
-	ReviewEntity toEntity(ReviewDto.Info info);
+	ReviewEntity toEntity(ReviewDto dto);
 
-	@Mapping(source = "member.memberId", target = "memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
 	@Mapping(source = "product.productId", target = "productId")
-	@IterableMapping(elementTargetType = ReviewDto.Info.class)
-	List<ReviewDto.Info> toInfoDtoList(List<ReviewEntity> entityList);
+	@IterableMapping(elementTargetType = ReviewDto.class)
+	List<ReviewDto> getDtoList(List<ReviewEntity> entityList);
 }

@@ -17,14 +17,19 @@ import com.gyunpang.be.entity.CouponCodeEntity;
 	uses = {
 		MemberMapper.class
 	})
-public interface CouponCodeMapper {
-	@Mapping(source = "member.memberId", target = "memberId")
-	CouponCodeDto.Info toInfoDto(CouponCodeEntity entity);
+public interface CouponCodeMapper extends GenericMapper<CouponCodeDto, CouponCodeEntity> {
+	CouponCodeEntity map(Integer couponCodeId);
 
-	@Mapping(source = "memberId", target = "member")
-	CouponCodeEntity toEntity(CouponCodeDto.Info info);
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
+	CouponCodeDto toDto(CouponCodeEntity entity);
 
-	@Mapping(source = "member.memberId", target = "memberId")
-	@IterableMapping(elementTargetType = CouponCodeDto.Info.class)
-	List<CouponCodeDto.Info> toInfoDtoList(List<CouponCodeEntity> entityList);
+	@Override
+	@Mapping(source = "userId", target = "member")
+	CouponCodeEntity toEntity(CouponCodeDto info);
+
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
+	@IterableMapping(elementTargetType = CouponCodeDto.class)
+	List<CouponCodeDto> getDtoList(List<CouponCodeEntity> entityList);
 }

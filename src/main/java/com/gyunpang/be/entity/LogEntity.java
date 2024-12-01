@@ -1,5 +1,7 @@
 package com.gyunpang.be.entity;
 
+import java.time.LocalDateTime;
+
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.SQLRestriction;
 
@@ -41,6 +43,12 @@ public class LogEntity {
 	@Column(name = "uri")
 	private String uri;
 
+	@Column(name = "route_id")
+	private String routeId;
+
+	@Column(name = "route")
+	private String route;
+
 	@Column(name = "method")
 	private String method;
 
@@ -48,8 +56,8 @@ public class LogEntity {
 	private String body;
 
 	@Column(name = "create_dt")
-	private String createDateTime;
+	private LocalDateTime createDateTime;
 
 	@Column(name = "user_id")
-	private int userId;
+	private String userId;
 }

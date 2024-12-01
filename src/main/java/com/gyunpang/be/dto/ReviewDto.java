@@ -9,23 +9,21 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Getter
+@ToString
+@Builder(toBuilder = true)
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class ReviewDto {
-	@Getter
-	@ToString
-	@Builder(toBuilder = true)
-	@EqualsAndHashCode
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class Info {
-		private int reviewId;
-		private String content;
-		private int score;
-		private int memberId;
-		private int productId;
-		private boolean useYn;
-		private LocalDateTime createTime;
-		private LocalDateTime modifyTime;
-		private LocalDateTime deleteTime;
-		private long version;
-	}
+	private Integer reviewId;
+	private String content;
+	private Integer score;
+	private Integer userId;
+	private Integer productId;
+	private Boolean useYn;
+	private LocalDateTime createTime;
+	private LocalDateTime modifyTime;
+	private LocalDateTime deleteTime;
+	private Long version;
 }

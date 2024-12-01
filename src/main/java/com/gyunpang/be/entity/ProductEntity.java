@@ -30,13 +30,13 @@ public class ProductEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
-	private int productId;
+	private Integer productId;
 
 	@Column(name = "name")
 	private String name;
 
 	@Column(name = "price")
-	private int price;
+	private Integer price;
 
 	@Column(name = "color")
 	private String color;

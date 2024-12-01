@@ -29,10 +29,10 @@ public class MemberEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "user_id")
-	private int userId;
+	private Integer userId;
 
 	@Column(name = "user_type")
-	private int userType;
+	private Integer userType;
 
 	@Column(name = "name")
 	private String name;

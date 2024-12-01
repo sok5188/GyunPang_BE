@@ -29,7 +29,7 @@ public class CouponEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "coupon_id")
-	private int couponId;
+	private Integer couponId;
 
 	@Column(name = "type")
 	private boolean type;

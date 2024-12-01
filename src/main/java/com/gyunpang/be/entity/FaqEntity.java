@@ -31,7 +31,7 @@ public class FaqEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "faq_id")
-	private int faqId;
+	private Integer faqId;
 
 	@Column(name = "title")
 	private String title;
