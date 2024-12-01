@@ -30,10 +30,10 @@ public class StockEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "stock_id")
-	private int stockId;
+	private Integer stockId;
 
 	@Column(name = "count")
-	private int count;
+	private Integer count;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "product_id")

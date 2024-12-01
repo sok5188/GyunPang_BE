@@ -4,8 +4,8 @@ import lombok.Data;
 
 public class TestDto {
 	@Data
-	public static class TestBody{
+	public static class TestBody {
 		String username;
-		int age;
+		Integer age;
 	}
 }

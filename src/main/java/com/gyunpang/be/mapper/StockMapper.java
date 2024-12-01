@@ -17,14 +17,19 @@ import com.gyunpang.be.entity.StockEntity;
 	uses = {
 		ProductMapper.class
 	})
-public interface StockMapper {
-	@Mapping(source = "product.productId", target = "productId")
-	StockDto.Info toInfoDto(StockEntity entity);
+public interface StockMapper extends GenericMapper<StockDto, StockEntity> {
+	StockEntity map(Integer stockId);
 
+	@Override
+	@Mapping(source = "product.productId", target = "productId")
+	StockDto toDto(StockEntity entity);
+
+	@Override
 	@Mapping(source = "productId", target = "product.productId")
-	StockEntity toEntity(StockDto.Info info);
+	StockEntity toEntity(StockDto dto);
 
+	@Override
 	@Mapping(source = "product.productId", target = "productId")
-	@IterableMapping(elementTargetType = StockDto.Info.class)
-	List<StockDto.Info> toInfoDtoList(List<StockEntity> entityList);
+	@IterableMapping(elementTargetType = StockDto.class)
+	List<StockDto> getDtoList(List<StockEntity> entityList);
 }

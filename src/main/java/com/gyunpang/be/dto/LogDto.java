@@ -15,13 +15,15 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class StockDto {
-	private Integer stockId;
-	private Integer count;
-	private Integer productId;
-	private Boolean useYn;
-	private LocalDateTime createTime;
-	private LocalDateTime modifyTime;
-	private LocalDateTime deleteTime;
-	private Long version;
+public class LogDto {
+	private String requestId;
+	private String statusCode;
+	private String type;
+	private String uri;
+	private String routeId;
+	private String route;
+	private String method;
+	private String body;
+	private LocalDateTime createDateTime;
+	private String userId;
 }

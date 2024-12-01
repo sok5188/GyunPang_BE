@@ -9,22 +9,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Getter
+@ToString
+@Builder(toBuilder = true)
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class CouponCodeDto {
-	@Getter
-	@ToString
-	@Builder(toBuilder = true)
-	@EqualsAndHashCode
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class Info {
-		private int couponCodeId;
-		private String code;
-		private boolean issuedYn;
-		private int memberId;
-		private boolean useYn;
-		private LocalDateTime createTime;
-		private LocalDateTime modifyTime;
-		private LocalDateTime deleteTime;
-		private long version;
-	}
+	private Integer couponCodeId;
+	private String code;
+	private Boolean issuedYn;
+	private Integer userId;
+	private Boolean useYn;
+	private LocalDateTime createTime;
+	private LocalDateTime modifyTime;
+	private LocalDateTime deleteTime;
+	private Long version;
 }

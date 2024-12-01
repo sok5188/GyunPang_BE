@@ -30,10 +30,10 @@ public class SellEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "sell_id")
-	private int sellId;
+	private Integer sellId;
 
 	@Column(name = "sell_status")
-	private int sellStatus;
+	private Integer sellStatus;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")

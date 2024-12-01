@@ -30,13 +30,13 @@ public class ReviewEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "review_id")
-	private int reviewId;
+	private Integer reviewId;
 
 	@Column(name = "content", length = 1000)
 	private String content;
 
 	@Column(name = "score")
-	private int score;
+	private Integer score;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")

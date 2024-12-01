@@ -9,20 +9,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Getter
+@ToString
+@Builder(toBuilder = true)
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class CategoryDto {
-	@Getter
-	@ToString
-	@Builder(toBuilder = true)
-	@EqualsAndHashCode
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class Info {
-		private int categoryId;
-		private String name;
-		private boolean useYn;
-		private LocalDateTime createTime;
-		private LocalDateTime modifyTime;
-		private LocalDateTime deleteTime;
-		private long version;
-	}
+	private Integer categoryId;
+	private String name;
+	private Boolean useYn;
+	private LocalDateTime createTime;
+	private LocalDateTime modifyTime;
+	private LocalDateTime deleteTime;
+	private Long version;
 }

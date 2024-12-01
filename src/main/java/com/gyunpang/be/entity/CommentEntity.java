@@ -31,7 +31,7 @@ public class CommentEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "comment_id")
-	private int commentId;
+	private Integer commentId;
 
 	@Column(name = "content", length = 1000)
 	private String content;

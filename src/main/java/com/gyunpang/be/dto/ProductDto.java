@@ -9,26 +9,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+@Getter
+@ToString
+@Builder(toBuilder = true)
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductDto {
-	@Getter
-	@ToString
-	@Builder(toBuilder = true)
-	@EqualsAndHashCode
-	@NoArgsConstructor
-	@AllArgsConstructor
-	public static class Info {
-		private int productId;
-		private String name;
-		private int price;
-		private String color;
-		private String size;
-		private String introduceLink;
-		private int memberId;
-		private int categoryId;
-		private boolean useYn;
-		private LocalDateTime createTime;
-		private LocalDateTime modifyTime;
-		private LocalDateTime deleteTime;
-		private long version;
-	}
+	private Integer productId;
+	private String name;
+	private Integer price;
+	private String color;
+	private String size;
+	private String IntegerroduceLink;
+	private Integer userId;
+	private Integer categoryId;
+	private Boolean useYn;
+	private LocalDateTime createTime;
+	private LocalDateTime modifyTime;
+	private LocalDateTime deleteTime;
+	private Long version;
 }

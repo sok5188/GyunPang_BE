@@ -17,17 +17,22 @@ import com.gyunpang.be.entity.CommentEntity;
 	uses = {
 		MemberMapper.class
 	})
-public interface CommentMapper {
-	@Mapping(source = "childComment.commentId", target = "childCommentId")
-	@Mapping(source = "member.memberId", target = "memberId")
-	CommentDto.Info toInfoDto(CommentEntity entity);
+public interface CommentMapper extends GenericMapper<CommentDto, CommentEntity> {
+	CommentEntity map(Integer commentId);
 
+	@Override
+	@Mapping(source = "entity.childComment.commentId", target = "childCommentId")
+	@Mapping(source = "entity.member.userId", target = "userId")
+	CommentDto toDto(CommentEntity entity);
+
+	@Override
 	@Mapping(source = "childCommentId", target = "childComment")
-	@Mapping(source = "memberId", target = "member.memberId")
-	CommentEntity toEntity(CommentDto.Info info);
+	@Mapping(source = "userId", target = "member.userId")
+	CommentEntity toEntity(CommentDto dto);
 
+	@Override
 	@Mapping(source = "childComment.commentId", target = "childCommentId")
-	@Mapping(source = "member.memberId", target = "memberId")
-	@IterableMapping(elementTargetType = CommentDto.Info.class)
-	List<CommentDto.Info> toInfoDtoList(List<CommentEntity> entityList);
+	@Mapping(source = "member.userId", target = "userId")
+	@IterableMapping(elementTargetType = CommentDto.class)
+	List<CommentDto> getDtoList(List<CommentEntity> entityList);
 }

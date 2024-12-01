@@ -30,16 +30,16 @@ public class OrderEntity extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id")
-	private int orderId;
+	private Integer orderId;
 
 	@Column(name = "count")
-	private int count;
+	private Integer count;
 
 	@Column(name = "order_status")
-	private int orderStatus;
+	private Integer orderStatus;
 
 	@Column(name = "pay_price")
-	private int payPrice;
+	private Integer payPrice;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id")

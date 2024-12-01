@@ -19,20 +19,25 @@ import com.gyunpang.be.entity.FaqEntity;
 		MemberMapper.class,
 		ProductMapper.class
 	})
-public interface FaqMapper {
-	@Mapping(source = "firstComment.commentId", target = "firstCommentId")
-	@Mapping(source = "member.memberId", target = "memberId")
-	@Mapping(source = "product.productId", target = "productId")
-	FaqDto.Info toInfoDto(FaqEntity entity);
+public interface FaqMapper extends GenericMapper<FaqDto, FaqEntity> {
+	FaqEntity map(Integer faqId);
 
+	@Override
+	@Mapping(source = "firstComment.commentId", target = "firstCommentId")
+	@Mapping(source = "member.userId", target = "userId")
+	@Mapping(source = "product.productId", target = "productId")
+	FaqDto toDto(FaqEntity entity);
+
+	@Override
 	@Mapping(source = "firstCommentId", target = "firstComment")
-	@Mapping(source = "memberId", target = "member.memberId")
+	@Mapping(source = "userId", target = "member.userId")
 	@Mapping(source = "productId", target = "product.productId")
-	FaqEntity toEntity(FaqDto.Info info);
+	FaqEntity toEntity(FaqDto dto);
 
+	@Override
 	@Mapping(source = "firstComment.commentId", target = "firstCommentId")
-	@Mapping(source = "member.memberId", target = "memberId")
+	@Mapping(source = "member.userId", target = "userId")
 	@Mapping(source = "product.productId", target = "productId")
-	@IterableMapping(elementTargetType = FaqDto.Info.class)
-	List<FaqDto.Info> toInfoDtoList(List<FaqEntity> entityList);
+	@IterableMapping(elementTargetType = FaqDto.class)
+	List<FaqDto> getDtoList(List<FaqEntity> entityList);
 }

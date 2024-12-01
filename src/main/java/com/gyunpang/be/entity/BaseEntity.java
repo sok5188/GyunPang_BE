@@ -19,7 +19,7 @@ import lombok.experimental.SuperBuilder;
 @Getter
 public class BaseEntity {
 	@Column(name = "use_yn")
-	private boolean useYn;
+	private Boolean useYn;
 
 	@Column(name = "create_dt")
 	private LocalDateTime createTime;
@@ -31,5 +31,5 @@ public class BaseEntity {
 	private LocalDateTime deleteTime;
 
 	@Version
-	private long version;
+	private Long version;
 }

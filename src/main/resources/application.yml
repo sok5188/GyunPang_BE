@@ -7,10 +7,14 @@ spring:
     password: ${db.password}
     driver-class: com.mysql.cj.jdbc.Driver
     hikari:
-      maximum-pool-size: 50
+      maximum-pool-size: 15
+      auto-commit: false
+      connection-timeout: 3000
+      max-lifetime: 60000
   jpa:
     hibernate:
       default-batch-size: 200
+      ddl-auto: none
     show-sql: true
 
 kafka:

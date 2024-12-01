@@ -18,17 +18,22 @@ import com.gyunpang.be.entity.SellEntity;
 		MemberMapper.class,
 		OrderMapper.class
 	})
-public interface SellMapper {
-	@Mapping(source = "member.memberId", target = "memberId")
-	@Mapping(source = "order.orderId", target = "orderId")
-	SellDto.Info toInfoDto(SellEntity entity);
+public interface SellMapper extends GenericMapper<SellDto, SellEntity> {
+	SellEntity map(Integer sellId);
 
-	@Mapping(source = "firstCommentId", target = "firstComment")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
+	@Mapping(source = "order.orderId", target = "orderId")
+	SellDto toDto(SellEntity entity);
+
+	@Override
+	@Mapping(source = "userId", target = "member.userId")
 	@Mapping(source = "orderId", target = "order.orderId")
-	SellEntity toEntity(SellDto.Info info);
+	SellEntity toEntity(SellDto dto);
 
-	@Mapping(source = "member.memberId", target = "memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
 	@Mapping(source = "order.orderId", target = "orderId")
-	@IterableMapping(elementTargetType = SellDto.Info.class)
-	List<SellDto.Info> toInfoDtoList(List<SellEntity> entityList);
+	@IterableMapping(elementTargetType = SellDto.class)
+	List<SellDto> getDtoList(List<SellEntity> entityList);
 }

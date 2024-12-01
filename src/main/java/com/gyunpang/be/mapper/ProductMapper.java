@@ -18,17 +18,22 @@ import com.gyunpang.be.entity.ProductEntity;
 		MemberMapper.class,
 		CategoryMapper.class
 	})
-public interface ProductMapper {
-	@Mapping(source = "member.memberId", target = "memberId")
-	@Mapping(source = "category.categoryId", target = "categoryId")
-	ProductDto.Info toInfoDto(ProductEntity entity);
+public interface ProductMapper extends GenericMapper<ProductDto, ProductEntity> {
+	ProductEntity map(Integer productId);
 
-	@Mapping(source = "memberId", target = "member.memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
+	@Mapping(source = "category.categoryId", target = "categoryId")
+	ProductDto toDto(ProductEntity entity);
+
+	@Override
+	@Mapping(source = "userId", target = "member.userId")
 	@Mapping(source = "categoryId", target = "category.categoryId")
-	ProductEntity toEntity(ProductDto.Info info);
+	ProductEntity toEntity(ProductDto dto);
 
-	@Mapping(source = "member.memberId", target = "memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
 	@Mapping(source = "category.categoryId", target = "categoryId")
-	@IterableMapping(elementTargetType = ProductDto.Info.class)
-	List<ProductDto.Info> toInfoDtoList(List<ProductEntity> entityList);
+	@IterableMapping(elementTargetType = ProductDto.class)
+	List<ProductDto> getDtoList(List<ProductEntity> entityList);
 }

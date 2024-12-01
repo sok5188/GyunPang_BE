@@ -17,23 +17,27 @@ import com.gyunpang.be.entity.OrderEntity;
 	uses = {
 		MemberMapper.class,
 		ProductMapper.class,
-		CommentMapper.class
+		CouponMapper.class
 	})
-public interface OrderMapper {
+public interface OrderMapper extends GenericMapper<OrderDto, OrderEntity> {
+	OrderEntity map(Integer orderId);
 
-	@Mapping(source = "member.memberId", target = "memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
 	@Mapping(source = "product.productId", target = "productId")
 	@Mapping(source = "coupon.couponId", target = "couponId")
-	OrderDto.Info toInfoDto(OrderEntity entity);
+	OrderDto toDto(OrderEntity entity);
 
-	@Mapping(source = "memberId", target = "member.memberId")
+	@Override
+	@Mapping(source = "userId", target = "member.userId")
 	@Mapping(source = "productId", target = "product.productId")
 	@Mapping(source = "couponId", target = "coupon")
-	OrderEntity toEntity(OrderDto.Info info);
+	OrderEntity toEntity(OrderDto dto);
 
-	@Mapping(source = "member.memberId", target = "memberId")
+	@Override
+	@Mapping(source = "member.userId", target = "userId")
 	@Mapping(source = "product.productId", target = "productId")
 	@Mapping(source = "coupon.couponId", target = "couponId")
-	@IterableMapping(elementTargetType = OrderDto.Info.class)
-	List<OrderDto.Info> toInfoDtoList(List<OrderEntity> entityList);
+	@IterableMapping(elementTargetType = OrderDto.class)
+	List<OrderDto> getDtoList(List<OrderEntity> entityList);
 }
