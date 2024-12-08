@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
-@RequestMapping("/test")
+@RequestMapping("/open")
 @RequiredArgsConstructor
 public class TestController {
 	private final KafkaConsumeService kafkaConsumeService;
