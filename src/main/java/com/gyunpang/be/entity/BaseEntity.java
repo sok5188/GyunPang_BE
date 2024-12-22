@@ -2,11 +2,15 @@ package com.gyunpang.be.entity;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,9 +25,11 @@ public class BaseEntity {
 	@Column(name = "use_yn")
 	private Boolean useYn;
 
+	@CreatedDate
 	@Column(name = "create_dt")
 	private LocalDateTime createTime;
 
+	@LastModifiedDate
 	@Column(name = "modify_dt")
 	private LocalDateTime modifyTime;
 
@@ -32,4 +38,14 @@ public class BaseEntity {
 
 	@Version
 	private Long version;
+
+	@PrePersist
+	public void prePersist() {
+		this.useYn = true;
+	}
+
+	@PreUpdate
+	public void preUpdate() {
+		this.useYn = true;
+	}
 }

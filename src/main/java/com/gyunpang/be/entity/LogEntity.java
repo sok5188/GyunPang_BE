@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Entity
-@Table(name = "review")
+@Table(name = "`log`")
 @DynamicUpdate
 @SuperBuilder
 @Getter

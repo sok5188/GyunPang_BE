@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.gyunpang.be.dto.CategoryDto;
 import com.gyunpang.be.dto.TestDto;
 import com.gyunpang.be.service.KafkaConsumeService;
+import com.gyunpang.be.service.repo.CategoryRepoService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class TestController {
 	private final KafkaConsumeService kafkaConsumeService;
+	private final CategoryRepoService categoryRepoService;
 
 	@GetMapping("/auth")
 	public ResponseEntity authTest(HttpServletRequest request) {
@@ -61,9 +64,16 @@ public class TestController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("500Error");
 		return ResponseEntity.ok("noErrorMatched");
 	}
+
 	// @RequestMapping("/callA")
 	// public ResponseEntity callA(){
 	// 	kafkaConsumeService.a();
 	// 	return ResponseEntity.ok("A");
 	// }
+	@PostMapping("/make/category")
+	public ResponseEntity makeCategory(@RequestBody CategoryDto dto) {
+		log.info("make category !");
+		categoryRepoService.save(dto);
+		return ResponseEntity.ok("saved !");
+	}
 }

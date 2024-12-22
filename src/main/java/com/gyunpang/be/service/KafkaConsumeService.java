@@ -26,7 +26,7 @@ public class KafkaConsumeService {
 	@KafkaListener(topics = "${kafka.topic.log}", groupId = "be")
 	public void consumeString(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION) String partition) {
 		LogDto restLog = parseRestLogDto(message);
-		log.debug("restLog : " + restLog);
+		log.info("restLog : " + restLog);
 		logRepoService.save(restLog);
 	}
 
