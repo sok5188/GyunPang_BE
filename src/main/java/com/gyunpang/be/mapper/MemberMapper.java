@@ -3,7 +3,7 @@ package com.gyunpang.be.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-import com.gyunpang.be.dto.MemberDto;
+import com.gyunpang.be.dto.entityDto.MemberDto;
 import com.gyunpang.be.entity.MemberEntity;
 
 @Mapper(

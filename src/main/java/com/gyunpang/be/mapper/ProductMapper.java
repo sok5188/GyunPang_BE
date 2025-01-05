@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
-import com.gyunpang.be.dto.ProductDto;
+import com.gyunpang.be.dto.entityDto.ProductDto;
 import com.gyunpang.be.entity.ProductEntity;
 
 @Mapper(

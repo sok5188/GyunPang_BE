@@ -2,7 +2,7 @@ package com.gyunpang.be.service.repo;
 
 import org.springframework.stereotype.Service;
 
-import com.gyunpang.be.dto.CategoryDto;
+import com.gyunpang.be.dto.entityDto.CategoryDto;
 import com.gyunpang.be.entity.BaseEntity;
 import com.gyunpang.be.entity.CategoryEntity;
 import com.gyunpang.be.mapper.CategoryMapper;

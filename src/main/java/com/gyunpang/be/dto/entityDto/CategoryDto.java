@@ -1,4 +1,4 @@
-package com.gyunpang.be.dto;
+package com.gyunpang.be.dto.entityDto;
 
 import java.time.LocalDateTime;
 
@@ -15,11 +15,9 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class CouponCodeDto {
-	private Integer couponCodeId;
-	private String code;
-	private Boolean issuedYn;
-	private Integer userId;
+public class CategoryDto {
+	private Integer categoryId;
+	private String name;
 	private Boolean useYn;
 	private LocalDateTime createTime;
 	private LocalDateTime modifyTime;
