@@ -1,4 +1,4 @@
-package com.gyunpang.be.dto;
+package com.gyunpang.be.dto.entityDto;
 
 import java.time.LocalDateTime;
 

@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.gyunpang.be.dto.CommentDto;
-import com.gyunpang.be.dto.MemberDto;
+import com.gyunpang.be.dto.entityDto.CommentDto;
+import com.gyunpang.be.dto.entityDto.MemberDto;
 import com.gyunpang.be.entity.CommentEntity;
 import com.gyunpang.be.entity.MemberEntity;
 import com.gyunpang.be.mapper.CommentMapper;

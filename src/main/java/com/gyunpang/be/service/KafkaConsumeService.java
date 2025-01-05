@@ -11,7 +11,7 @@ import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Service;
 
-import com.gyunpang.be.dto.LogDto;
+import com.gyunpang.be.dto.entityDto.LogDto;
 import com.gyunpang.be.service.repo.LogRepoService;
 
 import lombok.RequiredArgsConstructor;

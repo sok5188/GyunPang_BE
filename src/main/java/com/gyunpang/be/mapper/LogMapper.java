@@ -3,7 +3,7 @@ package com.gyunpang.be.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-import com.gyunpang.be.dto.LogDto;
+import com.gyunpang.be.dto.entityDto.LogDto;
 import com.gyunpang.be.entity.LogEntity;
 
 @Mapper(

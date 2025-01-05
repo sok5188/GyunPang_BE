@@ -1,4 +1,4 @@
-package com.gyunpang.be.dto;
+package com.gyunpang.be.dto.entityDto;
 
 import java.time.LocalDateTime;
 
@@ -15,9 +15,10 @@ import lombok.ToString;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class CategoryDto {
-	private Integer categoryId;
-	private String name;
+public class StockDto {
+	private Integer stockId;
+	private Integer count;
+	private Integer productId;
 	private Boolean useYn;
 	private LocalDateTime createTime;
 	private LocalDateTime modifyTime;

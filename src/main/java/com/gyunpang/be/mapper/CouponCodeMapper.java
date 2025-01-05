@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
-import com.gyunpang.be.dto.CouponCodeDto;
+import com.gyunpang.be.dto.entityDto.CouponCodeDto;
 import com.gyunpang.be.entity.CouponCodeEntity;
 
 @Mapper(
