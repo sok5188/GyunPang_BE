@@ -15,6 +15,8 @@ public enum CommonCode {
 	AUTH_STATUS_EMAIL_NOT_EXIST("AUTH-005", 400, "AUTH_FIND_FAIL_EMAIL_NOT_EXIST", "email is not exist"),
 	AUTH_STATUS_INVALID_PASSWORD("AUTH-006", 400, "AUTH_INVALID_PASSWORD", "Password is not correct"),
 
+	MAIL_STATUS_FAIL("MAIL-001", 500, "MAIL_SEND_FAIL", "Mail send function is failed"),
+
 	;
 
 	private final String code;

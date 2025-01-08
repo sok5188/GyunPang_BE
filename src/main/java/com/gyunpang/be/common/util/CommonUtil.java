@@ -1,4 +1,4 @@
-package com.gyunpang.be.common;
+package com.gyunpang.be.common.util;
 
 import java.util.UUID;
 

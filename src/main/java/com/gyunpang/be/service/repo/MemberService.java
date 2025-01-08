@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.gyunpang.be.common.CommonUtil;
+import com.gyunpang.be.common.util.CommonUtil;
 import com.gyunpang.be.dto.MemberInfoDto;
 import com.gyunpang.be.dto.entityDto.MemberDto;
 import com.gyunpang.be.entity.MemberEntity;
