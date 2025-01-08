@@ -20,3 +20,7 @@ spring:
 kafka:
   topic:
     log: GatewayAPI
+
+mail:
+  id: { mail.id }
+  password: { mail.password }

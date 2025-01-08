@@ -5,8 +5,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.gyunpang.be.common.CommonCode;
-import com.gyunpang.be.common.CommonUtil;
 import com.gyunpang.be.common.CustomException;
+import com.gyunpang.be.common.util.CommonUtil;
+import com.gyunpang.be.common.util.MailFormatter;
 import com.gyunpang.be.dto.MemberInfoDto;
 import com.gyunpang.be.dto.entityDto.MemberDto;
 import com.gyunpang.be.service.repo.MemberService;
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class AuthService {
 	private final MemberService memberService;
+	private final MailService mailService;
 
 	private MemberDto getMember(String username) {
 		Optional<MemberDto> optionalMember = memberService.findMemberByUsername(username);
@@ -43,8 +45,9 @@ public class AuthService {
 	}
 
 	public String sendVerifyCode(String email) {
-		//TODO : smtp 연결하고 인증코드 보내고 또 받는 로직 추가
-		return "verify";
+		String code = mailService.createCode();
+		mailService.sendMessage(email, MailFormatter.authTitle, String.format(MailFormatter.authTemplate, code));
+		return code;
 	}
 
 	public String findUsername(MemberInfoDto.FindUsernameReq req) {
@@ -62,8 +65,8 @@ public class AuthService {
 
 		String tempPassword = CommonUtil.makeRandomPassword();
 
-		//TODO : smtp 연결하고 인증코드 보내고 또 받는 로직 추가
-		//mailservice. send temp pwd
+		mailService.sendMessage(member.getEmail(), MailFormatter.findPasswordTitle,
+			String.format(MailFormatter.findPasswordTemplate, tempPassword));
 
 		member = member.toBuilder().password(tempPassword).build();
 		memberService.save(member);
