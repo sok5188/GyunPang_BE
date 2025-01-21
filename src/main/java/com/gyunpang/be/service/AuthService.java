@@ -77,7 +77,5 @@ public class AuthService {
 		String encryptedPassword = CommonUtil.passwordEncoder(req.getPassword());
 		if (!encryptedPassword.equals(member.getPassword()))
 			throw new CustomException(CommonCode.AUTH_STATUS_INVALID_PASSWORD);
-		//TODO : 토큰 발급 기능 추가
-
 	}
 }

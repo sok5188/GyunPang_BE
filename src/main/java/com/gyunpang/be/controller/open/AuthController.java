@@ -56,7 +56,7 @@ public class AuthController {
 		return ResponseEntity.ok("password reset");
 	}
 
-	@PutMapping("/signin")
+	@PutMapping("/signIn")
 	public ResponseEntity<String> signIn(@RequestBody MemberInfoDto.SignInReq req) {
 		authService.signIn(req);
 		return ResponseEntity.ok("sign in success");
