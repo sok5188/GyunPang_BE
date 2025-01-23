@@ -64,20 +64,20 @@ public class AuthService {
 			throw new CustomException(CommonCode.AUTH_STATUS_EMAIL_NOT_EXIST);
 
 		String tempPassword = CommonUtil.makeRandomPassword();
+		String encryptedTempPassword = CommonUtil.passwordEncoder(tempPassword);
 
 		mailService.sendMessage(member.getEmail(), MailFormatter.findPasswordTitle,
 			String.format(MailFormatter.findPasswordTemplate, tempPassword));
 
-		member = member.toBuilder().password(tempPassword).build();
+		member = member.toBuilder().password(encryptedTempPassword).build();
 		memberService.save(member);
 	}
 
 	public void signIn(MemberInfoDto.SignInReq req) {
 		MemberDto member = getMember(req.getUsername());
-		String encryptedPassword = CommonUtil.passwordEncoder(req.getPassword());
-		if (!encryptedPassword.equals(member.getPassword()))
+		boolean isPasswordMatched = CommonUtil.passwordMatches(req.getPassword(),
+			getMember(member.getUsername()).getPassword());
+		if (!isPasswordMatched)
 			throw new CustomException(CommonCode.AUTH_STATUS_INVALID_PASSWORD);
-		//TODO : 토큰 발급 기능 추가
-
 	}
 }
