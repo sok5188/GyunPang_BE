@@ -16,6 +16,7 @@ public class MemberInfoDto {
 	@AllArgsConstructor
 	public static class SignUpInfo {
 		private String nickname;
+		private String name;
 		private String username;
 		private String password;
 		private String email;

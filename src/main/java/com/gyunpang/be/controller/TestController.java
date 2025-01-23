@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.gyunpang.be.dto.entityDto.CategoryDto;
 import com.gyunpang.be.dto.TestDto;
+import com.gyunpang.be.dto.entityDto.CategoryDto;
 import com.gyunpang.be.service.KafkaConsumeService;
 import com.gyunpang.be.service.repo.CategoryRepoService;
 

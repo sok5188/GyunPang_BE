@@ -32,6 +32,7 @@ public class MemberService {
 	public void registerUser(MemberInfoDto.SignUpInfo info) {
 		MemberDto dto = MemberDto.builder()
 			.username(info.getUsername())
+			.name(info.getName())
 			.nickname(info.getNickname())
 			.email(info.getEmail())
 			.userType(info.getUserType())
