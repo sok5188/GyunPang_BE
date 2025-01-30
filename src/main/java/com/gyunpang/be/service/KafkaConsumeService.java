@@ -59,7 +59,7 @@ public class KafkaConsumeService {
 			.body(logInfoMap.getOrDefault("body", "defaultBody"))
 			.requestId(logInfoMap.getOrDefault("requestId", "defaultRequestId"))
 			.type(logInfoMap.getOrDefault("type", "defaultType"))
-			.userId(logInfoMap.getOrDefault("userId", "default"))
+			.userId(logInfoMap.getOrDefault("username", "default"))
 			.build();
 	}
 }

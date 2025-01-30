@@ -73,11 +73,12 @@ public class AuthService {
 		memberService.save(member);
 	}
 
-	public void signIn(MemberInfoDto.SignInReq req) {
+	public Integer signIn(MemberInfoDto.SignInReq req) {
 		MemberDto member = getMember(req.getUsername());
 		boolean isPasswordMatched = CommonUtil.passwordMatches(req.getPassword(),
 			getMember(member.getUsername()).getPassword());
 		if (!isPasswordMatched)
 			throw new CustomException(CommonCode.AUTH_STATUS_INVALID_PASSWORD);
+		return member.getUserType();
 	}
 }
