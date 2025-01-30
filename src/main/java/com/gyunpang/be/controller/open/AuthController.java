@@ -57,9 +57,8 @@ public class AuthController {
 	}
 
 	@PutMapping("/signIn")
-	public ResponseEntity<String> signIn(@RequestBody MemberInfoDto.SignInReq req) {
-		authService.signIn(req);
-		return ResponseEntity.ok("sign in success");
+	public ResponseEntity<Integer> signIn(@RequestBody MemberInfoDto.SignInReq req) {
+		return ResponseEntity.ok(authService.signIn(req));
 	}
 
 }
