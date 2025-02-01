@@ -33,6 +33,12 @@ jobs:
           spring.datasource.username: ${{secrets.DB_USERNAME}}
           spring.datasource.password: ${{secrets.DB_PASSWORD}}
 
+      - name: Create gcs JSON file
+        run: |
+          echo "$GCS_CREDENTIALS" > src/main/resources/cloud_storage_iam.json
+        env:
+          GCP_CREDENTIALS: ${{ secrets.GCS_CREDENTIALS }}
+
       - name: Gradle Caching
         uses: actions/cache@v3
         with:
